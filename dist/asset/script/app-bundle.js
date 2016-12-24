@@ -58,6 +58,7 @@
 	
 	var message = 'Application "' + _config2.default.name + ' (' + _config2.default.status + ')" version ' + _config2.default.version + ' ready and running';
 	console.log(message);
+	console.log(_canvas2.default);
 
 /***/ },
 /* 1 */
@@ -80,7 +81,37 @@
 
 	'use strict';
 	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	console.log('canvas open');
+	
+	var canvas = document.getElementById('game');
+	var ctx = canvas.getContext('2d');
+	
+	var width = Math.floor(0.8 * window.innerWidth);
+	var height = Math.floor(0.9 * window.innerHeight);
+	
+	canvas.style.width = width + "px";
+	canvas.style.height = height + "px";
+	
+	canvas.style.margin = window.innerHeight / 2 - height / 2 + "px 0px 0px " + (window.innerWidth / 2 - width / 2) + "px";
+	
+	document.body.appendChild(canvas);
+	
 	console.log('canvas ready');
+	
+	exports.default = {
+		getWidth: function getWidth() {
+			return width;
+		},
+		getHeight: function getHeight() {
+			return height;
+		},
+		getCtx: function getCtx() {
+			return ctx;
+		}
+	};
 
 /***/ }
 /******/ ]);
